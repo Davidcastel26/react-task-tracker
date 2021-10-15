@@ -22,14 +22,28 @@ const App = () => {
         day: 'Feb 5th at 2:30pm',
         reminder: false,
     },
-])
+  ])
+  //Delete Task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+  //Toggle Reminder 
+  const toggleReminder = (id) => {
+    console.log(id)
+  }
+
   // const name ='Brad'
   // const x = true
-
   return (
     <div className='container'>
       <Header />
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ?  <Tasks 
+        tasks={tasks} 
+        onDelete={deleteTask}
+        onToggle={toggleReminder}
+      /> : (
+        'No Tasks to Show at this moment'
+      )}
       {/* <h1>Hey sup!</h1> */}
       {/* <h2>hello {name, 1+ 1, '' , x ? 'Yes' : 'No'}</h2> */}
     </div>
