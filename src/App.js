@@ -19,7 +19,7 @@ const App = () => {
     {
         id:3,
         text: 'Food Shopping',
-        day: 'Feb 5th at 2:30pm',
+        day: 'Feb 5th at 2:30pm', 
         reminder: false,
     },
   ])
@@ -29,7 +29,12 @@ const App = () => {
   }
   //Toggle Reminder 
   const toggleReminder = (id) => {
-    console.log(id)
+    // console.log(id)
+    setTasks(tasks.map((task) => 
+      task.id === id ? {...task, reminder:
+      !task.reminder} : task
+      ))
+
   }
 
   // const name ='Brad'
