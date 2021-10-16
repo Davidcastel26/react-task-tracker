@@ -8,11 +8,7 @@ import Button from "./Button"
 // WE COULD USE THE DESTRUCTURE FROM THE PROPS 
 //  <h1>{PROPS.TITLE}</h1>
 
-const Header = ({title}) => {
-    const onClick = () => {
-        console.log('here')
-    }
-
+const Header = ({ title, onAdd, showAdd }) => {
     return(
         <header className='header'>
 {/* in order to make an styles we need to use dooble curly brakes {{}} */}
@@ -21,9 +17,9 @@ const Header = ({title}) => {
             {/* <h1 style={headingStyle}>{title}</h1> */}
             <h1> {title} </h1>
             <Button 
-                color='green' 
-                text='Add'
-                onClick={onClick}
+                color={showAdd ? 'red' :'green'} 
+                text={showAdd ? 'Close' : 'Add'}
+                onClick={onAdd}
             />
         </header>
     )
